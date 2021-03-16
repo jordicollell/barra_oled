@@ -4,9 +4,15 @@ let pol = 0
 OLED12864_I2C.init(60)
 OLED12864_I2C.zoom(true)
 basic.forever(function () {
-    pol = input.soundLevel()
+    pol = input.lightLevel()
     negre = Math.round(Math.map(pol, 0, 255, 0, 60))
     blanc = Math.round(Math.map(pol, 0, 255, 1, 61))
+    OLED12864_I2C.showString(
+    0,
+    0,
+    "    ",
+    1
+    )
     OLED12864_I2C.showNumber(
     0,
     0,
